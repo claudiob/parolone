@@ -1,4 +1,4 @@
-Parolaio::Application.routes.draw do
+Parolone::Application.routes.draw do
   get "sessions/create"
 
   get "sessions/destroy"

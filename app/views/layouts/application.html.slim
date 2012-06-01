@@ -1,10 +1,10 @@
 doctype html
 html(lang='it')
   head
-    title Parolaio
+    title Parolone
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    meta name='viewport' content='width=device-width, maximum-scale=1.0'
     meta charset='utf-8'
     meta name='description' content='Paroline, paroline, parolacce'
     meta name='author' content='Claudio B'
@@ -20,7 +20,7 @@ html(lang='it')
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          = link_to 'Parolaio', root_path, class: 'brand'
+          = link_to 'Parolone', root_path, class: 'brand'
           ul.nav.pull-right
             - if current_user
               li= link_to "Disconnetti #{current_user.name}", logout_path

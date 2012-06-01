@@ -1,4 +1,4 @@
-parolaio
+parolone
 ========
 
 Da dirimpettaio a fattucchiera

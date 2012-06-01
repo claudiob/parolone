@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Parolaio::Application.load_tasks
+Parolone::Application.load_tasks

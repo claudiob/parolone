@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Parolaio::Application.config.session_store :cookie_store, key: '_parolaio_session'
+Parolone::Application.config.session_store :cookie_store, key: '_parolone_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Parolaio::Application.config.session_store :active_record_store
+# Parolone::Application.config.session_store :active_record_store
