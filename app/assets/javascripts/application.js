@@ -11,5 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+// require jquery_ujs
+// require_tree .
+// Loads all Bootstrap javascripts
+/// require bootstrap
+//= require bootstrap-alert
+//= require bootstrap-transition
+// You can also load individual modules, provided you sort out any related dependencies.
+// 
+/// require bootstrap-scrollspy
+/// require bootstrap-modal
+/// require bootstrap-dropdown

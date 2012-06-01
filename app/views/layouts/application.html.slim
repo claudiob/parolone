@@ -1,13 +1,43 @@
 doctype html
-html
+html(lang='it')
   head
     title Parolaio
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
     = csrf_meta_tags
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    meta charset='utf-8'
+    meta name='description' content='Paroline, paroline, parolacce'
+    meta name='author' content='Claudio B'
+    /[ if lt IE 9 ]
+      script src='http://html5shim.googlecode.com/svn/trunk/html5.js'
+    link rel='shortcut icon' href='http://twitter.github.com/bootstrap/assets/ico/favicon.ico'
+    link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png'
+    link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png'
+    link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png'
+    link rel='apple-touch-icon-precomposed' href='http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png'
+    
   body
-    - if notice
-      .notice= notice
-    - if alert
-      .alert= alert
-    = yield
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to 'Parolaio', root_path, class: 'brand'
+          ul.nav.pull-right
+            - if current_user
+              li= link_to "Disconnetti #{current_user.name}", logout_path
+            - else
+              li= link_to 'Accedi via Twitter', '/auth/twitter'
+              li.divider-vertical
+              li= link_to 'Accedi via Github', '/auth/github'
+
+    .container
+      - if notice
+        .alert.alert-success.fade.in
+          button.close(data-dismiss='alert') ×
+          = notice
+      - if alert
+        .alert.alert-error.fade.in
+          button.close(data-dismiss='alert') ×
+          | =alert
+      = yield
+
+    = javascript_include_tag 'application'

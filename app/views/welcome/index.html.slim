@@ -1,7 +1,10 @@
-- if current_user
-  p Welcome #{current_user.name}
-  p= link_to 'Sign out', logout_path
-- else
-  ul
-    li= link_to 'Sign in with Twitter', '/auth/twitter'
-    li= link_to 'Sign in with Github', '/auth/github'
+.hero-unit
+  h1 Dirimpettaio
+  p
+    small
+      em fam.
+      ' Che, chi abita dirimpetto, di faccia.
+  form.form-inline
+    button type='submit' class='btn btn-primary btn-large btn-success' Favolosa
+    button type='submit' class='btn btn-primary btn-large btn-warning' Così così
+    button type='submit' class='btn btn-primary btn-large btn-danger' Squallida
