@@ -1,0 +1,7 @@
+- if current_user
+  p Welcome #{current_user.name}
+  p= link_to 'Sign out', logout_path
+- else
+  ul
+    li= link_to 'Sign in with Twitter', '/auth/twitter'
+    li= link_to 'Sign in with Github', '/auth/github'
