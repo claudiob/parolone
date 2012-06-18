@@ -3,8 +3,10 @@ Parolone::Application.routes.draw do
 
   get "sessions/destroy"
 
-  get "welcome/index"
+  get "sessions/index"
 
+  get "welcome/index"
+  
   match '/auth/:provider/callback', to: 'sessions#create', as: :login
   match '/signout', to: 'sessions#destroy', as: :logout
 

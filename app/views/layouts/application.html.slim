@@ -22,22 +22,28 @@ html(lang='it')
         .container
           = link_to 'Parolone', root_path, class: 'brand'
           ul.nav.pull-right
-            - if current_user
-              li= link_to "Disconnetti #{current_user.name}", logout_path
-            - else
-              li= link_to 'Accedi via Twitter', '/auth/twitter'
-              li.divider-vertical
-              li= link_to 'Accedi via Github', '/auth/github'
 
     .container
-      - if notice
-        .alert.alert-success.fade.in
-          button.close(data-dismiss='alert') ×
-          = notice
-      - if alert
-        .alert.alert-error.fade.in
-          button.close(data-dismiss='alert') ×
-          | =alert
+      /- if notice
+      /  .alert.alert-success.fade.in
+      /    button.close(data-dismiss='alert') ×
+      /    = notice
+      /- if alert
+      /  .alert.alert-error.fade.in
+      /    button.close(data-dismiss='alert') ×
+      /    | =alert
       = yield
 
-    = javascript_include_tag 'application'
+      = javascript_include_tag 'application'
+      coffee:
+        if document.cookie == "logged_in=true"
+          $.get '/sessions/index', {}, (current_user) ->
+            if current_user?
+              $('.pull-right').append('<li><a href="/signout">Disconnetti ' + current_user['name'] + '</a></li>')
+            else
+              $('.pull-right').append('<li><a href="/auth/twitter">Accedi via Twitter</a></li>')
+              $('.pull-right').append('<li><a href="/auth/github">Accedi via Github</a></li>')
+              
+        else
+          $('.pull-right').append('<li><a href="/auth/twitter">Accedi via Twitter</a></li>')
+          $('.pull-right').append('<li><a href="/auth/github">Accedi via Github</a></li>')
